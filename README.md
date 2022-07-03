@@ -9,9 +9,16 @@ A data pipeline with Kafka, Spark Streaming, dbt, Docker, Airflow, Terraform, GC
 
 ### Objective
 
+The project will stream cryptocurrencies data using the coincap api and create a data pipeline that consumess the real-time data. The data coming in would be real-time data on assets, rates, exchanges and markets. The data will be processed in real-time and stored to the data lake periodically. The hourly dbt job will then consume this data, transform it and create the desired tables for our dashboard to generate charts.
 
 
 ### Dataset
+
+[CoinCap](https://docs.coincap.io/) is a useful tool for real-time pricing and market activity for over 1,000 cryptocurrencies. By collecting exchange data from thousands of markets, we are able to offer transparent and accurate data on asset price and availability.
+
+Our API will offer insight into exactly which exchanges and markets contribute to our pricing.
+
+For all endpoints, a single page offers 100 responses by default and supports up to 2,000 responses per page upon requests.
 
 
 

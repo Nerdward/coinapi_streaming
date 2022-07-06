@@ -22,15 +22,17 @@ def _produce_event():
     """
 
     response = requests.request("GET", url=URL,headers=HEADERS, data=PAYLOAD)
+    data = json.loads(response.text)
 
-    return response.text
+    return data
 
 def send_events():
     while(True):
         data = _produce_event()
+        for row in data['data']:
+            print('producing')
+            producer.send(TOPIC_NAME, value=row)
         time.sleep(10) 
-        print('producing')
-        producer.send(TOPIC_NAME, value=data)
 
 
 if __name__ == '__main__':
